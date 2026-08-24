@@ -3,76 +3,131 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Satary_SokaInside - Live Scores & News</title>
+    <title>Satary_SokaInside - Live Sports & News</title>
     <style>
-        body {
-            background-color: #0d1117;
-            color: #ffffff;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            margin: 0;
-            padding: 0;
-        }
-        header {
-            background-color: #161b22;
-            padding: 20px;
-            text-align: center;
-            border-bottom: 2px solid #2ea44f;
-        }
-        h1 {
-            color: #2ea44f;
-            margin: 0;
-            font-size: 28px;
-        }
-        p {
-            color: #8b949e;
-        }
-        .container {
-            padding: 20px;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        .card {
-            background-color: #161b22;
-            border: 1px solid #30363d;
-            border-radius: 8px;
-            padding: 15px;
-            margin-bottom: 15px;
-        }
-        .match {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-weight: bold;
-        }
-        .live-tag {
-            background-color: #da3633;
-            color: white;
-            padding: 3px 8px;
-            border-radius: 4px;
-            font-size: 12px;
-        }
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        body { background-color: #0b0e14; color: #e6edf3; }
+        
+        /* Header & Nav */
+        header { background-color: #161b22; padding: 15px 20px; border-bottom: 2px solid #2ea44f; display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-size: 24px; font-weight: bold; color: #2ea44f; }
+        nav a { color: #8b949e; margin-left: 15px; text-decoration: none; font-size: 14px; }
+        nav a.active, nav a:hover { color: #ffffff; font-weight: bold; }
+
+        /* Main Container */
+        .container { max-width: 1000px; margin: 20px auto; padding: 0 15px; display: grid; grid-template-columns: 2fr 1fr; gap: 20px; }
+
+        /* Section Titles */
+        .section-title { font-size: 18px; color: #2ea44f; margin-bottom: 15px; border-left: 4px solid #2ea44f; padding-left: 8px; }
+
+        /* Cards */
+        .card { background-color: #161b22; border: 1px solid #30363d; border-radius: 8px; padding: 15px; margin-bottom: 15px; }
+
+        /* Matches */
+        .match-card { display: flex; flex-direction: column; gap: 10px; }
+        .match-header { display: flex; justify-content: space-between; font-size: 12px; color: #8b949e; }
+        .live-badge { background-color: #da3633; color: white; padding: 2px 6px; border-radius: 4px; font-weight: bold; animation: blink 1s infinite; }
+        
+        .teams { display: flex; justify-content: space-between; align-items: center; font-size: 16px; font-weight: bold; margin: 5px 0; }
+        .score { background-color: #21262d; padding: 5px 12px; border-radius: 6px; color: #2ea44f; }
+
+        /* News Section */
+        .news-item { border-bottom: 1px solid #30363d; padding-bottom: 10px; margin-bottom: 10px; }
+        .news-item:last-child { border-bottom: none; }
+        .news-title { font-size: 14px; font-weight: bold; color: #ffffff; text-decoration: none; }
+        .news-time { font-size: 11px; color: #8b949e; margin-top: 4px; }
+
+        /* Standing Table */
+        table { width: 100%; border-collapse: collapse; font-size: 13px; text-align: left; }
+        th, td { padding: 8px; border-bottom: 1px solid #30363d; }
+        th { color: #8b949e; }
+
+        @keyframes blink { 50% { opacity: 0.5; } }
+        @media (max-width: 768px) { .container { grid-template-columns: 1fr; } }
     </style>
 </head>
 <body>
 
     <header>
-        <h1>Satary_SokaInside ⚽</h1>
-        <p>Matokeo Mubashara, Ratiba & Habari za Soka</p>
+        <div class="logo">Satary_SokaInside ⚽</div>
+        <nav>
+            <a href="#" class="active">Live Scores</a>
+            <a href="#">Ratiba</a>
+            <a href="#">Msimamo</a>
+            <a href="#">Habari</a>
+        </nav>
     </header>
 
     <div class="container">
-        <div class="card">
-            <span class="live-tag">LIVE 75'</span>
-            <div class="match">
-                <span>Arsenal 🔴</span>
-                <span>2 - 1</span>
-                <span>Chelsea 🔵</span>
+        <!-- Main Content (Matches) -->
+        <div>
+            <div class="section-title">MECHI ZA LEO & LIVE</div>
+
+            <!-- Match 1 -->
+            <div class="card match-card">
+                <div class="match-header">
+                    <span>LIGI KUU YA UANGLIA (EPL)</span>
+                    <span class="live-badge">LIVE 82'</span>
+                </div>
+                <div class="teams">
+                    <span>🔴 Arsenal</span>
+                    <span class="score">2 - 1</span>
+                    <span>🔵 Chelsea</span>
+                </div>
+            </div>
+
+            <!-- Match 2 -->
+            <div class="card match-card">
+                <div class="match-header">
+                    <span>NBC PREMIER LEAGUE (TANZANIA)</span>
+                    <span class="live-badge">LIVE 45'</span>
+                </div>
+                <div class="teams">
+                    <span>🟢 Young Africans</span>
+                    <span class="score">1 - 0</span>
+                    <span>🔴 Simba SC</span>
+                </div>
+            </div>
+
+            <!-- Match 3 (Upcoming) -->
+            <div class="card match-card">
+                <div class="match-header">
+                    <span>LA LIGA (SPAIN)</span>
+                    <span style="color: #8b949e;">SAAA 23:00 USIKU</span>
+                </div>
+                <div class="teams">
+                    <span>⚪ Real Madrid</span>
+                    <span style="font-size: 14px; color: #8b949e;">VS</span>
+                    <span>🔴 FC Barcelona</span>
+                </div>
             </div>
         </div>
 
-        <div class="card">
-            <h3>Habari Mpya za Soka 📰</h3>
-            <p>Karibu kwenye mfumo rasmi wa Satary_SokaInside. Tujiandae kwa msimu mpya wa soka!</p>
+        <!-- Sidebar (News & Standings) -->
+        <div>
+            <!-- Habari Card -->
+            <div class="card">
+                <div class="section-title">HABARI MOTO MOTO 📰</div>
+                <div class="news-item">
+                    <div class="news-title">Simba SC Yaingia Mkataba Mpya wa Udhamini!</div>
+                    <div class="news-time">Dakika 15 zilizopita</div>
+                </div>
+                <div class="news-item">
+                    <div class="news-title">Msimamo wa EPL: Arsenal Waendelea Kuongoza Ligi.</div>
+                    <div class="news-time">Saa 1 lililopita</div>
+                </div>
+            </div>
+
+            <!-- Msimamo Card -->
+            <div class="card">
+                <div class="section-title">MSIMAMO WA EPL 🏆</div>
+                <table>
+                    <tr><th>#</th><th>Klabu</th><th>Pkt</th></tr>
+                    <tr><td>1</td><td>Arsenal</td><td>45</td></tr>
+                    <tr><td>2</td><td>Man City</td><td>42</td></tr>
+                    <tr><td>3</td><td>Liverpool</td><td>40</td></tr>
+                </table>
+            </div>
         </div>
     </div>
 
